@@ -1,4 +1,4 @@
 #!/usr/bin/env sh
 . "$(dirname -- "$0")/_/husky.sh"
-
+# Funcion de convencional
 npx --no -- commitlint --edit "$1"
