@@ -42,6 +42,14 @@ export class RepositoryFlight {
       where: {
         status: true,
       },
+      include: {
+        passenger: {
+          select: {
+            name: true,
+            email: true,
+          },
+        },
+      },
     });
   }
 
@@ -49,6 +57,14 @@ export class RepositoryFlight {
     return await this._prismaService.flight.findUnique({
       where: {
         id: +id,
+      },
+      include: {
+        passenger: {
+          select: {
+            name: true,
+            email: true,
+          },
+        },
       },
     });
   }
