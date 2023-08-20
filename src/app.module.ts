@@ -1,9 +1,8 @@
 import { Module } from '@nestjs/common';
-import { AppController } from './app.controller';
-import { AppService } from './app.service';
 import { ConfigModule } from '@nestjs/config';
 import { UserModule } from './domain/user/user.module';
 import { PassengerModule } from './domain/passenger/passenger.module';
+import { FlightModule } from './domain/flight/flight.module';
 
 @Module({
   imports: [
@@ -13,8 +12,9 @@ import { PassengerModule } from './domain/passenger/passenger.module';
     }),
     UserModule,
     PassengerModule,
+    FlightModule,
   ],
-  controllers: [AppController],
-  providers: [AppService],
+  controllers: [],
+  providers: [],
 })
 export class AppModule {}
