@@ -1,4 +1,4 @@
-import { Injectable } from '@nestjs/common';
+import { HttpStatus, Injectable } from '@nestjs/common';
 import { PrismaService } from 'src/prisma.service';
 import { FlightDTO } from '../dto';
 import { IFlight } from 'src/common/interface/flight.interface';
@@ -26,8 +26,8 @@ export class RepositoryFlight {
     });
   }
 
-  async deleteFlight(id: number): Promise<IFlight> {
-    return await this._prismaService.flight.update({
+  async deleteFlight(id: number) {
+    await this._prismaService.flight.update({
       where: {
         id: +id,
       },
@@ -35,6 +35,10 @@ export class RepositoryFlight {
         status: false,
       },
     });
+    return {
+      statuss: HttpStatus.OK,
+      msg: 'Deleted',
+    };
   }
 
   async getAllFlight(): Promise<IFlight[]> {

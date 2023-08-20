@@ -6,23 +6,23 @@ import { IFlight } from 'src/common/interface/flight.interface';
 @Injectable()
 export class FlightService {
   constructor(readonly _repositoryFlight: RepositoryFlight) {}
-  createFlight(flightFTO: FlightDTO): Promise<IFlight> {
-    return this._repositoryFlight.createFlight(flightFTO);
+  async createFlight(flightFTO: FlightDTO): Promise<IFlight> {
+    return await this._repositoryFlight.createFlight(flightFTO);
   }
 
-  updateFlight(id: number, flightDTO: FlightDTO): Promise<IFlight> {
-    return this._repositoryFlight.updateFlight(id, flightDTO);
+  async updateFlight(id: number, flightDTO: FlightDTO): Promise<IFlight> {
+    return await this._repositoryFlight.updateFlight(id, flightDTO);
   }
 
-  deleteFlight(id: number): Promise<IFlight> {
-    return this._repositoryFlight.deleteFlight(id);
+  async deleteFlight(id: number) {
+    return await this._repositoryFlight.deleteFlight(id);
   }
 
-  getAllFlight(): Promise<IFlight[]> {
-    return this._repositoryFlight.getAllFlight();
+  async getAllFlight(): Promise<IFlight[]> {
+    return await this._repositoryFlight.getAllFlight();
   }
 
-  getByIdFlight(id: number): Promise<IFlight> {
-    return this._repositoryFlight.getByIdFlight(id);
+  async getByIdFlight(id: number): Promise<IFlight> {
+    return await this._repositoryFlight.getByIdFlight(id);
   }
 }
