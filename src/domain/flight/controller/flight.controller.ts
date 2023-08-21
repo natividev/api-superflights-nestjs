@@ -8,12 +8,13 @@ import {
   Param,
   Post,
   Put,
-  Query,
 } from '@nestjs/common';
 import { FlightDTO } from '../dto';
 import { FlightService } from '../service/flight.service';
+import { ApiTags } from '@nestjs/swagger';
 
-@Controller('flight')
+@ApiTags('flights')
+@Controller('flights')
 export class FlightController {
   constructor(readonly _serviceFligh: FlightService) {}
   @Post()
