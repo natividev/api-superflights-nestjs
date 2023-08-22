@@ -7,6 +7,15 @@ import { IUser } from 'src/common/interface/user.interface';
 export class RepositoryUser {
   constructor(private readonly _prismaService: PrismaService) {}
 
+  async findByUserName(username: string) {
+    const user = await this._prismaService.user.findUnique({
+      where: {
+        userName: username,
+      },
+    });
+    return user;
+  }
+
   async createUser(userDTO: UserDTO): Promise<IUser> {
     return await this._prismaService.user.create({
       data: {

@@ -3,6 +3,7 @@ import { ConfigModule } from '@nestjs/config';
 import { UserModule } from './domain/user/user.module';
 import { PassengerModule } from './domain/passenger/passenger.module';
 import { FlightModule } from './domain/flight/flight.module';
+import { AuthModule } from './domain/auth/auth.module';
 
 @Module({
   imports: [
@@ -13,6 +14,7 @@ import { FlightModule } from './domain/flight/flight.module';
     UserModule,
     PassengerModule,
     FlightModule,
+    AuthModule,
   ],
   controllers: [],
   providers: [],
