@@ -8,6 +8,16 @@ import { UserDTO } from '../dto';
 export class UserService {
   constructor(private readonly _reposotory: RepositoryUser) {}
 
+  async findByUserName(username: string) {
+    return this._reposotory.findByUserName(username);
+  }
+  async checkPassword(
+    password: string,
+    userPasswordDB: string,
+  ): Promise<boolean> {
+    return await bcrypt.compare(password, userPasswordDB);
+  }
+
   async passwordHastEncry(userDTO: UserDTO) {
     const salt = await bcrypt.genSalt(10);
     const passwordHash = await bcrypt.hash(userDTO.password, salt);
