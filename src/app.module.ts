@@ -4,6 +4,7 @@ import { UserModule } from './domain/user/user.module';
 import { PassengerModule } from './domain/passenger/passenger.module';
 import { FlightModule } from './domain/flight/flight.module';
 import { AuthModule } from './domain/auth/auth.module';
+import { PdfModule } from './domain/pdf/pdf.module';
 
 @Module({
   imports: [
@@ -15,6 +16,7 @@ import { AuthModule } from './domain/auth/auth.module';
     PassengerModule,
     FlightModule,
     AuthModule,
+    PdfModule,
   ],
   controllers: [],
   providers: [],
